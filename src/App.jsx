@@ -1,4 +1,5 @@
 import reactImg from './assets/react-core-concepts.png';
+import componentsImg from './assets/components.png';
 
 //array of descriptors to dynamically load
 const reactDesciptions = ["Fundamental", "Crucial", "Core"];
@@ -24,12 +25,35 @@ function Header() {
   )
 }
 
+function CoreConcept({title, description, image}) {
+  return(
+    <li>
+      <img src={image} alt={title}></img>
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </li>
+  )
+}
+
+//added props to CoreConcepts component. Since I am familiar with this concept, I destructured them to make more sense visably for myself
 function App() {
   return (
     <div>
       <Header />
       <main>
-        <h2>Time to get started!</h2>
+        <section id='core-concepts'>
+          <h2>Core Concepts</h2>
+          <ul>
+            <CoreConcept 
+              title="Components" 
+              description="The core UI Building Block."
+              image={componentsImg}/>
+            <CoreConcept title="Props"/>
+            <CoreConcept />
+            <CoreConcept />
+          </ul>
+
+        </section>
       </main>
     </div>
   );
