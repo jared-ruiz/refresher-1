@@ -1,5 +1,5 @@
 import reactImg from './assets/react-core-concepts.png';
-import componentsImg from './assets/components.png';
+import { CORE_CONCEPTS } from './data.js';
 
 //array of descriptors to dynamically load
 const reactDesciptions = ["Fundamental", "Crucial", "Core"];
@@ -25,7 +25,7 @@ function Header() {
   )
 }
 
-function CoreConcept({title, description, image}) {
+function CoreConcept({image, title, description}) {
   return(
     <li>
       <img src={image} alt={title}></img>
@@ -36,7 +36,9 @@ function CoreConcept({title, description, image}) {
 }
 
 //added props to CoreConcepts component. Since I am familiar with this concept, I destructured them to make more sense visably for myself
+//... spread operator will pull all the key value pairs from the core_concepts object array and give the same results as the one above
 function App() {
+
   return (
     <div>
       <Header />
@@ -45,12 +47,14 @@ function App() {
           <h2>Core Concepts</h2>
           <ul>
             <CoreConcept 
-              title="Components" 
-              description="The core UI Building Block."
-              image={componentsImg}/>
-            <CoreConcept title="Props"/>
-            <CoreConcept />
-            <CoreConcept />
+              title={CORE_CONCEPTS[0].title} 
+              description={CORE_CONCEPTS[0].description}
+              image={CORE_CONCEPTS[0].image} />
+              
+            <CoreConcept {...CORE_CONCEPTS[1]} />
+            <CoreConcept {...CORE_CONCEPTS[2]} />
+            <CoreConcept {...CORE_CONCEPTS[3]} />
+
           </ul>
 
         </section>
