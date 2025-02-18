@@ -1,4 +1,5 @@
 import reactImg from '../../assets/react-core-concepts.png';
+import '../Header/Header.css';
 
 //array of descriptors to dynamically load
 const reactDesciptions = ["Fundamental", "Crucial", "Core"];
