@@ -7,9 +7,11 @@ import TabButton from './components/TabButton/TabButton.jsx';
 //... spread operator will pull all the key value pairs from the core_concepts object array and give the same results as the one above
 function App() {
 
+  let tabContent = 'Please click a button';
+
   function handleSelect(selectedButton) {
     //selectedButton => 'components', 'jsx', 'props', 'state'
-    console.log(selectedButton);
+    tabContent = selectedButton;
 }
 
 
@@ -40,7 +42,7 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          Dynamic Content
+          {tabContent}
         </section>
       </main>
     </div>
