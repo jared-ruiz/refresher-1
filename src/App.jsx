@@ -9,7 +9,7 @@ import { useState } from 'react';
 //... spread operator will pull all the key value pairs from the core_concepts object array and give the same results as the one above
 function App() {
 
-  const [selectedTopic, setSelectedTopic] = useState('components');
+  const [selectedTopic, setSelectedTopic] = useState();
 
   function handleSelect(selectedButton) {
     //selectedButton => 'components', 'jsx', 'props', 'state'
@@ -45,7 +45,9 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-            <div id='tab-content'>
+          {!selectedTopic && <p>Please select a topic.</p>}
+          {selectedTopic && (
+          <div id='tab-content'>
               <h3>{EXAMPLES[selectedTopic].title}</h3>
               <p>{EXAMPLES[selectedTopic].description}</p>
               <pre>
@@ -54,6 +56,7 @@ function App() {
                 </code>
               </pre>
             </div>
+          )}
         </section>
       </main>
     </div>
